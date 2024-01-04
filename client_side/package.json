@@ -41,4 +41,4 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.5.2"
   }
-}
+}// Initial commit: Set up Angular client with .gitignore and package.json
