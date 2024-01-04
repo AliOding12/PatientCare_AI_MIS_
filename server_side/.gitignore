@@ -1,2 +1,7 @@
-/node_modules
-.codegpt
+.env
+bashscript.sh
+node_modules/
+server_side/.codegpt/
+server_side/.idea/
+server_side/.vscode/
+<!-- Set up Express server with .gitignore and package.json -->
