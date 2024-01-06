@@ -21,4 +21,4 @@ password:'root',
 database:'medico',
 waitForConnections: true
 })
-module.exports = mysqlpool;
+module.exports = mysqlpool;// Add database connection setup
