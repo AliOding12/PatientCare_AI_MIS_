@@ -44,3 +44,4 @@ Router.post('/createDoc',createDoc);
 
 module.exports = Router;
 
+// Add main routes for Express
