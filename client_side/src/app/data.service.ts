@@ -14,3 +14,4 @@ export class DataService {
 
 // we need to make a interface for the data that we are receiving else how would it know in which form to receive a data
 }
+// Add data service for API calls
