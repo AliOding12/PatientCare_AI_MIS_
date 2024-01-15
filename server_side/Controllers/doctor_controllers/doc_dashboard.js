@@ -26,4 +26,4 @@ const patientdashboard = (req,res)=>{
     res.sendFile(path.resolve(__dirname, '../../views/patientviews/patientdashboard.html'));
 }
 
-   module.exports = {dashboard,appointment,report,sidebar,mlinterface,patientdashboard};
+   module.exports = {dashboard,appointment,report,sidebar,mlinterface,patientdashboard};// Add doctor dashboard controller
