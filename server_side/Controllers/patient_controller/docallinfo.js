@@ -28,3 +28,4 @@ exports.getDoctorById = async (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 };
+// Add patient info controller
