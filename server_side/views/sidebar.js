@@ -14,3 +14,4 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(error => console.error("Error loading sidebar:", error));
 });
+// Add sidebar JavaScript functionality
