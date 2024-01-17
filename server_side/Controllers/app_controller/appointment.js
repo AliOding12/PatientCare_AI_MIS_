@@ -106,3 +106,4 @@ module.exports = {appointment1,NorthKorea,bookAppointment};
 // JOIN patients p ON a.id = p.id
 // WHERE a.doctor_id = ?
 // ORDER BY a.appointment_date ASC;
+// Add appointment controller
