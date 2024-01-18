@@ -36,4 +36,4 @@ Router.get('/mlinterface',specialAuth,UserRole(['doctor']),mlinterface);
 Router.get('/patientdashboard',specialAuth,UserRole(['patient']),patientdashboard);
 Router.post('/book-appointment',bookAppointment);
 
-module.exports = Router;
+module.exports = Router;// Add appointment routes
