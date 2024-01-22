@@ -17,3 +17,4 @@ sendbtn.addEventListener('click',()=>{
 });
 
 
+// Add chat page JavaScript
