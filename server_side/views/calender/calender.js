@@ -23,4 +23,4 @@ function openNav() {
 
 
 
- }
+ }// Add calendar JavaScript
