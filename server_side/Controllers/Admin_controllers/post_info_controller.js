@@ -99,3 +99,4 @@ const createMedicalRecord = async (req, res) => {
 
 
 module.exports = {Add_doctor_info,addTask,Post_Appointments,createMedicalRecord};
+// Add admin post info controller
