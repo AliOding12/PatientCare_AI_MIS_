@@ -109,4 +109,4 @@ const getMedicalHistoryByPatient = async (req, res) => {
 };
 
 
-module.exports = {GetDocInfo,Get_Info_Tasks,Get_Appointments_info,getMedicalHistoryByPatient};
+module.exports = {GetDocInfo,Get_Info_Tasks,Get_Appointments_info,getMedicalHistoryByPatient};// Add admin get info controller
