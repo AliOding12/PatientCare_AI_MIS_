@@ -22,3 +22,4 @@ module.exports = {deleteMedicalRecord};
 
 
 
+// Add admin delete info controller
