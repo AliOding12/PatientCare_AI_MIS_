@@ -131,4 +131,4 @@ const updateMedicalRecord = async (req, res) => {
 };
 
 
-module.exports = { updateDoctorInfo,updateTaskInfo,updateMedicalRecord };
+module.exports = { updateDoctorInfo,updateTaskInfo,updateMedicalRecord };// Add admin update info controller
