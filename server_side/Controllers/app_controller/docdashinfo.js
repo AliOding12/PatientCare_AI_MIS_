@@ -21,3 +21,4 @@ exports.getDoctorInfo = async (req, res) => {
 };
 
 
+// Add doctor dashboard info controller
