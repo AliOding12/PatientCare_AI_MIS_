@@ -152,3 +152,4 @@ const deleteReport = async (req, res) => {
 };
 
 module.exports = { getReports, uploadReport, deleteReport,upload };
+// Add file handling controller
