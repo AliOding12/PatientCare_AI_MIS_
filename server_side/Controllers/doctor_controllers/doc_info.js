@@ -152,4 +152,4 @@ module.exports = {docinfo};
 // } catch (err) {
 //     console.error('Error fetching doctor info:', err);
 //     res.status(500).send('Internal server error');
-// }
+// }// Add doctor info controller
