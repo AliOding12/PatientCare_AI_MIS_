@@ -41,3 +41,4 @@ const UserRole = (roles)=>{
 
 module.exports = { specialAuth ,UserRole};
 // Add doctor validation middleware
+// Optimize doctor validation middleware
