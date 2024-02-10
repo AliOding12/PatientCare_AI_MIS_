@@ -24,3 +24,4 @@ function openNav() {
 
 
  }// Add calendar JavaScript
+// Add calendar event handling
