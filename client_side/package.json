@@ -42,3 +42,4 @@
     "typescript": "~5.5.2"
   }
 }// Initial commit: Set up Angular client with .gitignore and package.json
+// Finalize dependencies for both client and server
