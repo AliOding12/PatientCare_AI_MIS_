@@ -23,3 +23,4 @@ waitForConnections: true
 })
 module.exports = mysqlpool;// Add database connection setup
 // Add connection pooling to database
+// Add database connection setup
