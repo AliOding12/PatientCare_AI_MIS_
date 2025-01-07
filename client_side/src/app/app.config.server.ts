@@ -10,3 +10,4 @@ const serverConfig: ApplicationConfig = {
 
 export const config = mergeApplicationConfig(appConfig, serverConfig);
 // Add Angular app configuration
+// Add Angular app configuration

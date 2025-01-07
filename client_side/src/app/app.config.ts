@@ -10,3 +10,4 @@ export const appConfig: ApplicationConfig = {
     providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(),provideHttpClient(withFetch())]
 };
 // Add Angular app configuration
+// Add Angular app configuration
