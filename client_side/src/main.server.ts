@@ -6,3 +6,4 @@ const bootstrap = () => bootstrapApplication(AppComponent, config);
 
 export default bootstrap;
 // Add Angular entry points
+// Add Angular entry points
