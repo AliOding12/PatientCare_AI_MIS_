@@ -49,3 +49,4 @@ const createDoc = async (req,res)=>{
 }
 
 module.exports = {createDoc};// Add admin registration controller
+// Add admin registration controller
