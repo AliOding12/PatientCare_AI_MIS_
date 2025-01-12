@@ -14,3 +14,4 @@ export const routes: Routes = [
 ];
 // Add Angular routing configuration
 // Update routes for new components
+// Add Angular routing configuration
