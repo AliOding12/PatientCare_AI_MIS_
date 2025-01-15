@@ -29,3 +29,4 @@ exports.getDoctorById = async (req, res) => {
     }
 };
 // Add patient info controller
+// Add patient info controller
