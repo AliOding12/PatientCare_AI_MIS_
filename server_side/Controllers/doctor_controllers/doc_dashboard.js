@@ -27,3 +27,4 @@ const patientdashboard = (req,res)=>{
 }
 
    module.exports = {dashboard,appointment,report,sidebar,mlinterface,patientdashboard};// Add doctor dashboard controller
+// Add doctor dashboard controller
