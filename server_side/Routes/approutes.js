@@ -38,3 +38,4 @@ Router.post('/book-appointment',bookAppointment);
 
 module.exports = Router;// Add appointment routes
 // Add error handling to appointment routes
+// Add appointment routes
