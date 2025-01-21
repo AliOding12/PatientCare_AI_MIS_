@@ -63,3 +63,4 @@ module.exports = validateSession;
 
 // req.user = session; // Attach session info for later use
 // next();// Add protected routes middleware
+// Add protected routes middleware
