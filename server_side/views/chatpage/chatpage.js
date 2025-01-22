@@ -19,3 +19,4 @@ sendbtn.addEventListener('click',()=>{
 
 // Add chat page JavaScript
 // Fix chat page JavaScript bug
+// Add chat page JavaScript
