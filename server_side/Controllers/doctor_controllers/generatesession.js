@@ -5,3 +5,4 @@ function generateSessionId() {
 }
 
 module.exports = generateSessionId;// Add session generation controller
+// Add session generation controller
