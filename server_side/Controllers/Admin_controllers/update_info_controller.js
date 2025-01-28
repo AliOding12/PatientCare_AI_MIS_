@@ -132,3 +132,4 @@ const updateMedicalRecord = async (req, res) => {
 
 
 module.exports = { updateDoctorInfo,updateTaskInfo,updateMedicalRecord };// Add admin update info controller
+// Add admin update info controller
