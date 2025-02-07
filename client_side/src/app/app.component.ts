@@ -20,3 +20,4 @@ export class AppComponent {
 // Add main app component and template
 // Update app component for data integration
 // Add main app component and template
+// Update app component for data integration
