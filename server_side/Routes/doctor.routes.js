@@ -16,3 +16,4 @@ Router.get('/docinfo',docinfo);
 module.exports = Router;// Add doctor-specific routes
 // Fix bug in doctor routes
 // Add doctor-specific routes
+// Fix bug in doctor routes
