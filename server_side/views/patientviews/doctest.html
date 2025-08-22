@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Doctor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Find a Doctor</h2>
+        <input type="text" id="search" class="form-control mb-3" placeholder="Search by name, specialty, or location">
+
+        <div class="row" id="doctor-list">
+            <!-- Doctors will be dynamically loaded here -->
+        </div>
+    </div>
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("http://localhost:8080/api/all-doctors") // Call backend API
+            .then(response => response.json())
+            .then(doctors => {
+                const doctorList = document.getElementById("doctor-list");
+                doctorList.innerHTML = ""; // Clear existing content
+
+                doctors.forEach(doctor => {
+                    doctorList.innerHTML += `
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="${doctor.profile_image || 'default-doctor.jpg'}" class="card-img-top" alt="Doctor">
+                                <div class="card-body">
+                                    <h5 class="card-title">${doctor.name}</h5>
+                                    <p class="card-text">Specialist: ${doctor.specialty}</p>
+                                    <p>Experience: ${doctor.experience} years</p>
+                                    <button class="btn btn-primary" onclick="viewProfile(${doctor.id})">View Profile</button>
+                                </div>
+                            </div>
+                        </div>`;
+                });
+            })
+            .catch(error => console.error("Error fetching doctors:", error));
+    });
+
+    function viewProfile(doctorId) {
+        window.location.href = `viewdoc.html?doctorId=${doctorId}`;
+    }
+</script>
+
+</html>

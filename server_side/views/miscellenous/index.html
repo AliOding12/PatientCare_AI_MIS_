@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Appointments</h1>
+        <table class="table table-striped" id="appointmentsTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Patient Name</th>
+                    <th>Doctor Name</th>
+                    <th>Appointment Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+    <script>
+        // Fetch the appointments from the API
+        async function fetchAppointments() {
+            try {
+                const response = await fetch('http://localhost:3000/api/getappointment/1'); // Adjust API path as needed
+                const data = await response.json();
+
+                // Populate the table
+                const tableBody = document.getElementById('appointmentsTable').querySelector('tbody');
+                data.data.forEach((data, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${data.patient_name}</td>
+                        <td>${data.doctor_name}</td>
+                        <td>${data.appointment_date}</td>
+                        <td>${data.status}</td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching appointments:', error);
+            }
+        }
+
+        // Call the function on page load
+        window.onload = fetchAppointments;
+    </script>
+</html>

@@ -1,0 +1,37 @@
+body{
+    background-color: rgb(94, 94, 252);
+}
+#parent{
+    background-color: rgb(96, 160, 0);
+    height: 150px;
+    width: 150px;
+    position: relative;
+    left: 60px;
+
+}
+#child{
+    background-color: rgb(255, 255, 62);
+    height: 50px;
+    width: 50px;
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+
+#btn1{
+    background-color: white;
+}
+
+.buttons{
+    background-color: rgb(58, 57, 56);
+    height: fit-content;
+    width: fit-content;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+.buttons:hover{
+    background-color: rgb(112, 95, 95);
+}
+#btn1:hover{
+    background-color: tomato;
+}

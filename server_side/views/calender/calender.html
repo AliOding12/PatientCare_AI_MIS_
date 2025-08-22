@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calender</title>
+    <link rel="stylesheet" href="calender.css" />
+  </head>
+  <body>
+    <div class="outerdiv">
+      <div class="searchdiv">
+        <input id="searchbar" type="search" size="90" placeholder="Search" />
+        <button class="btn" id="notification">N</button>
+        <button class="btn" id="setting">S</button>
+      </div>
+
+      <div class="infodiv">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDKn3vA2YUbXzN0ZC3gALWJ08gJN-Drl15w&s"
+          alt="Description"
+          id="img01"
+        />
+        <ul>
+          <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit fuga et ad quisquam, laborum tenetur nulla inventore mollitia laboriosam maxime perferendis ducimus dolorem magni ab neque, velit voluptatibus. Cum repellendus aut quibusdam minima natus est et aperiam sint animi, facilis sunt, magni temporibus exercitationem placeat. Vel animi facilis sequi nam.</li>
+          <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi ad tempora dicta ut. Quo dolorum minus ea odit ullam veritatis vel at qui temporibus laborum. Voluptas cupiditate quasi voluptatum voluptatibus repudiandae placeat assumenda! Officiis voluptates eveniet iusto illum, voluptas commodi aliquid omnis obcaecati animi nam nostrum labore doloribus ratione nobis!</li>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta debitis saepe nihil, blanditiis repellat adipisci odio dolorem voluptatum officiis! Nihil quod dolore officiis iste amet excepturi quasi hic natus beatae magnam aperiam ab dolorem nemo, possimus accusamus reprehenderit ipsum enim. Quibusdam inventore dicta sequi dolorum quo atque illo fuga et. Doloribus soluta earum ex! Atque, dignissimos, magnam odio laudantium fuga possimus ex ab aliquam, aspernatur eum pariatur nostrum voluptatibus obcaecati cupiditate neque facere dicta maxime. Laudantium officia eum, distinctio a repudiandae iure quas veritatis harum vitae, aspernatur ratione dignissimos perferendis saepe commodi id vero voluptatum iusto soluta nihil ea. Exercitationem.</li>
+        </ul>
+      </div>
+
+      <div class="chartcontainer">
+        <!-- Creating a ui-widgets classes that 
+            store other useful classes like 
+            ui-values and ui-labels -->
+        <div class="ui-widgets">
+          <div class="ui-values">85%</div>
+          <div class="ui-labels">Java</div>
+        </div>
+
+        <div class="ui-widgets">
+          <div class="ui-values">50%</div>
+          <div class="ui-labels">HTML</div>
+        </div>
+        
+      </div>
+
+      <div class="todocontainer">
+          <ul>
+            <h2>ToDo:</h2>
+            <li>1.clean desk</li>
+            <li>2.make changes</li>
+            <li>3.check patients</li>
+            <li>1.clean desk</li>
+            <li>2.make changes</li>
+            <li>3.check patients</li>
+            <li>1.clean desk</li>
+            <li>2.make changes</li>
+            <li>3.check patients</li>
+            <li>1.clean desk</li>
+            <li>2.make changes</li>
+            <li>3.check patients</li>
+            <li>1.clean desk</li>
+            <li>2.make changes</li>
+            <li>3.check patients</li>
+            <li>1.clean desk</li>
+            
+          </ul>
+      </div>
+
+      <div class="calenderdiv">
+
+      </div>
+
+    </div>
+
+
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+    
+    <!-- Use any element to open the sidenav -->
+    <button class="opnbtn" onclick="openNav()">open</button>
+    
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+    <div id="main">
+      ...
+    </div>
+
+    <ul>
+      <li>Item1</li>
+      <li>Item2</li>
+      <li>Item3</li>
+      <li>Item4</li>
+      <li>Item5</li>
+    </ul>
+      
+  </body>
+  <script src="calender.js"></script>
+</html>

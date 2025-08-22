@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h2 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #fff;
+            padding: 0.8rem 1.2rem;
+            margin: 0.5rem 0;
+            width: 90%;
+            text-align: center;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar a:hover {
+            background-color: #6a11cb;
+        }
+
+        /* Toggle Button */
+        .toggle-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            margin-left: 250px;
+            padding: 2rem;
+            flex-grow: 1;
+            transition: margin-left 0.3s ease;
+        }
+
+        .dashboard-container.full-width {
+            margin-left: 0;
+        }
+
+        /* Header Section */
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .search-container input {
+            border: none;
+            outline: none;
+            background: none;
+            color: #fff;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        .search-container button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .notifications {
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Main Content */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        /* To-Do List */
+        .to-do-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .to-do-list ul li {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        /* Progress Bars */
+        .progress-bar {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar span {
+            display: block;
+            height: 20px;
+            background-color: #6a11cb;
+        }
+        #doc_container{
+            color: solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <button class="toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+    <div class="sidebar hidden" id="sidebar">
+        <h2>Menu</h2>
+        <a href="#">Dashboard</a>
+        <a href="#">Appointments</a>
+        <a href="#">Patients</a>
+        <a href="#">Reports</a>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard-container full-width" id="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="search-container">
+                <input type="text" placeholder="Search patients...">
+                <button>&#128269;</button>
+            </div>
+            <div class="notifications">&#128276;</div>
+        </div>
+
+        <!-- Main Content -->
+         <!-- The main content dashboard-->
+        <div class="grid">
+            <!-- Doctor Info -->
+            <div class="card" id="doctor-info">
+                <h3>Doctor Info</h3>
+                <div id="doc_container">
+                    <h1 id="doctorName"></h1>
+                    <p id="doctorEmail"></p>
+                    <p id="doctorSpecialization"></p>
+                </div>
+            </div>
+
+            <!-- To-Do List -->
+            <div class="card to-do-list" id="to-do-list">
+                <h3>To-Do List</h3>
+                <ul>
+                    <li>Loading...</li>
+                </ul>
+            </div>
+
+            <!-- Progress Bars -->
+            <div class="card" id="progress-bars">
+                <h3>Progress</h3>
+                <p>Loading...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sidebar Toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const dashboardContainer = document.getElementById('dashboard-container');
+            sidebar.classList.toggle('hidden');
+            dashboardContainer.classList.toggle('full-width');
+        }
+
+        async function fetchDashboardData() {
+            try {
+                fetch('http://localhost:3000/docapi/docinfo', {
+                    method: 'GET',
+                    credentials: 'include', // Ensure cookies are sent
+                })
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json(); // Parse response data as JSON
+                    })
+                    .then((data) => {
+                        console.log('Doctor Info:', data);
+                        // Use the data to update your dashboard
+                        document.getElementById('doctorName').innerText = data.name;
+                        document.getElementById('doctorEmail').innerText = data.email;
+                        document.getElementById('doctorSpecialization').innerText = data.specialization;
+                    })
+                    .catch((error) => {
+                        console.error('Error fetching doctor info:', error);
+                    });
+            } catch (error) {
+                console.error('Error fetching dashboard data:', error);
+                alert('Failed to load dashboard data.');
+            }
+        }
+        
+        // Call the function when the page loads
+        fetchDashboardData();
+    </script>
+</body>
+</html>

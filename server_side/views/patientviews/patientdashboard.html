@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f6f6f6;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(135deg, #1e56a0, #163172);
+            padding: 15px;
+        }
+
+        .navbar .nav-link {
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .navbar .nav-link:hover {
+            color: #608bc1;
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin-top: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Section */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #d6e4f0;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header-section h2 {
+            color: #1e56a0;
+            font-weight: bold;
+        }
+
+        .header-section .btn-find-doctor {
+            background-color: #1e56a0;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .header-section .btn-find-doctor:hover {
+            background-color: #608bc1;
+        }
+
+        /* Profile Section */
+        .profile-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-card img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .profile-card h3 {
+            color: #1e56a0;
+            font-weight: bold;
+        }
+
+        /* Section Titles */
+        .section-title {
+            color: #1e56a0;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* Card Styling */
+        .card {
+            background-color: #d6e4f0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: #1e56a0;
+            color: white;
+            font-weight: bold;
+        }
+
+        .card-body {
+            color: #163172;
+        }
+
+        .card-body .btn {
+            background-color: #1e56a0;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card-body .btn:hover {
+            background-color: #608bc1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Patient Dashboard</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="find_doctor.html">Find a Doctor</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Patient Dashboard -->
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div>
+                <h2>Welcome, Patient</h2>
+                <p>Your health matters the most</p>
+            </div>
+            <button class="btn-find-doctor" onclick="window.location.href='find_doctor.html'">Find a Doctor</button>
+        </div>
+
+        <!-- Profile Section -->
+        <div class="profile-card">
+            <img src="../grummedlog.webp" alt="Patient Photo">
+            <h3>John Doe</h3>
+            <p>Age: 35</p>
+            <p>Email: john.doe@example.com</p>
+            <p>Phone: +1 234 567 890</p>
+        </div>
+
+        <!-- Appointment History Section -->
+        <div>
+            <h3 class="section-title">Appointment History</h3>
+            <div class="card">
+                <div class="card-header">Upcoming Appointments</div>
+                <div class="card-body">
+                    <p><strong>Doctor:</strong> Dr. Sarah Lee</p>
+                    <p><strong>Date:</strong> 10th November, 2023</p>
+                    <p><strong>Time:</strong> 2:30 PM</p>
+                    <button class="btn">View Appointment</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Past Appointments</div>
+                <div class="card-body">
+                    <p><strong>Doctor:</strong> Dr. Mark Smith</p>
+                    <p><strong>Date:</strong> 15th October, 2023</p>
+                    <p><strong>Time:</strong> 10:00 AM</p>
+                    <button class="btn">View Details</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Medical Reports Section -->
+        <div>
+            <h3 class="section-title">Medical Reports</h3>
+            <div class="card">
+                <div class="card-header">Blood Test - October 2023</div>
+                <div class="card-body">
+                    <p><strong>Report Summary:</strong> Everything looks normal</p>
+                    <button class="btn">View Report</button>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">X-Ray Report - September 2023</div>
+                <div class="card-body">
+                    <p><strong>Report Summary:</strong> No issues detected</p>
+                    <button class="btn">View Report</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #34495e;
+    color: white;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    transition: width 0.3s;
+  }
+  
+  .sidebar.closed {
+    width: 60px;
+  }
+  
+  .toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+  ul li button {
+    color: rgb(247, 247, 247);
+    text-decoration: none;
+    display: block;
+    background-color:#34495e ;
+  }
+  

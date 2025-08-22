@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      /* General Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #133E87, #608BC1);
+        color: #133E87;
+      }
+
+      /* Container */
+      .login-container {
+        background-color: #F3F3E0;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        width: 350px;
+        text-align: center;
+      }
+
+      /* Title */
+      .login-container h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: #133E87;
+      }
+
+      /* Form Elements */
+      .login-container input[type="email"],
+      .login-container input[type="password"] {
+        width: 100%;
+        padding: 0.8rem;
+        margin: 0.5rem 0;
+        border: 1px solid #CBDCEB;
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: #fff;
+        color: #133E87;
+      }
+
+      .login-container input[type="submit"] {
+        width: 100%;
+        padding: 0.8rem;
+        margin-top: 1rem;
+        background-color: #133E87;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .login-container input[type="submit"]:hover {
+        background-color: #608BC1;
+      }
+
+      /* Radio Buttons */
+      .radio-group {
+        display: flex;
+        justify-content: space-around;
+        margin: 1rem 0;
+      }
+      .radio-group label {
+        font-weight: bold;
+        color: #133E87;
+      }
+
+      /* Links */
+      .login-container a {
+        color: #133E87;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      .login-container a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <!-- Radio Buttons for User Type -->
+        <div class="radio-group">
+          <div>
+            <input type="radio" id="patient" name="userType" value="patient" checked />
+            <label for="patient">Patient</label>
+          </div>
+          <div>
+            <input type="radio" id="doctor" name="userType" value="doctor" />
+            <label for="doctor">Doctor</label>
+          </div>
+        </div>
+
+        <input type="submit" value="Login" />
+        <p class="error" id="error-message"></p>
+      </form>
+      <p>Don't have an account? <a href="#">Sign Up</a></p>
+    </div>
+  </body>
+</html>

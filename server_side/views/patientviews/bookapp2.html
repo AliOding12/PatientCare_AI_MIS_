@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center">Book an Appointment</h2>
+        <form id="appointmentForm">
+            <div class="mb-3">
+                <label for="patientName" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="patientName" required>
+            </div>
+            <div class="mb-3">
+                <label for="appointmentDate" class="form-label">Select Date</label>
+                <input type="date" class="form-control" id="appointmentDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="appointmentTime" class="form-label">Select Time</label>
+                <input type="time" class="form-control" id="appointmentTime" required>
+            </div>
+            <button type="submit" class="submit-btn">Confirm Appointment</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            const name = document.getElementById("patientName").value;
+            const date = document.getElementById("appointmentDate").value;
+            const time = document.getElementById("appointmentTime").value;
+
+            if (name && date && time) {
+                alert("Appointment booked successfully!");
+                window.location.href = "patientdashboard.html"; // Redirect after booking
+            } else {
+                alert("Please fill all fields.");
+            }
+        });
+    </script>
+
+</body>
+</html>

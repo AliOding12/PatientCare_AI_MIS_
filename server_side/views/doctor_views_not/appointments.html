@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Appointments Management</h1>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search appointments by patient name or date...">
+        </div>
+
+        <!-- Upcoming Appointments -->
+        <h2>Upcoming Appointments</h2>
+        <table id="upcomingAppointments">
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>2023-10-15</td>
+                    <td>10:00 AM</td>
+                    <td>Routine Checkup</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>2023-10-16</td>
+                    <td>02:30 PM</td>
+                    <td>Follow-up</td>
+                </tr>
+                <!-- Add more rows dynamically from your backend -->
+            </tbody>
+        </table>
+
+        <!-- Appointment History -->
+        <h2>Appointment History</h2>
+        <table id="appointmentHistory">
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>2023-10-01</td>
+                    <td>09:00 AM</td>
+                    <td>Consultation</td>
+                    <td>Completed</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>2023-09-25</td>
+                    <td>11:00 AM</td>
+                    <td>Vaccination</td>
+                    <td>Completed</td>
+                </tr>
+                <!-- Add more rows dynamically from your backend -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Simple search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const tables = document.querySelectorAll('table');
+
+            tables.forEach(table => {
+                const rows = table.getElementsByTagName('tr');
+                for (let i = 1; i < rows.length; i++) { // Start from 1 to skip header
+                    const row = rows[i];
+                    const text = row.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

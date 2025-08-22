@@ -1,0 +1,51 @@
+body{
+    background-color: #f8f7f4;
+}
+
+
+#outer-container{
+    border: 2px solid #545051;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+#reports-container{
+    border: 2px solid #504f4f;
+    border-radius: 2px;
+    width: 75vw;
+    height: 100vh;
+
+}
+#sidebar-reports{
+    border: 2px solid #585757;
+    border-radius: 2px;
+    width: 25vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+#ckcbtn{
+    background-color: #6a6969;
+    border-radius: 5px;
+    
+}
+.sidebar-items{
+    padding:5px;
+    margin: 5px;
+    color: black;
+    background-color: #afadaddd;
+    border: 1px solid black;
+    border-radius:5px ;
+}
+
+#testdiv{
+    background-color: #aeaeaecb;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid black;
+    
+}

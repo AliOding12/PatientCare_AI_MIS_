@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f6f6f6;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #1e56a0;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #163172;
+        }
+
+        /* Input Styling */
+        .form-control {
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #d6e4f0;
+            border: 2px solid #608bc1;
+            box-shadow: none;
+        }
+
+        .form-control:focus {
+            border-color: #1e56a0;
+            background-color: #f1f8ff;
+        }
+
+        /* Button Styling */
+        .submit-btn {
+            background-color: #1e56a0;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #608BC1;
+        }
+
+        /* Response message */
+        #responseMessage {
+            font-size: 16px;
+            color: #28a745;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #responseMessage.error {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Book an Appointment</h2>
+        <form id="appointmentForm">
+            <input type="hidden" id="doctorId">
+            <div class="mb-3">
+                <label for="appointmentDate" class="form-label">Select Date</label>
+                <input type="date" class="form-control" id="appointmentDate" required>
+            </div>
+            <div class="mb-3">
+                <label for="appointmentTime" class="form-label">Select Time</label>
+                <input type="time" class="form-control" id="appointmentTime" required>
+            </div>
+            <button type="submit" class="submit-btn">Confirm Appointment</button>
+        </form>
+        <p id="responseMessage" class="text-center mt-3"></p>
+    </div>
+
+    <script>
+        // ✅ Function to Get Query Parameters from URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const doctorId = getQueryParam("doctorId"); // Get doctorId from URL
+            if (doctorId) {
+                document.getElementById("doctorId").value = doctorId; // Set hidden field
+            } else {
+                alert("Doctor ID is missing. Redirecting...");
+                window.location.href = "find_doctor.html"; // Redirect if no doctor ID
+            }
+        });
+
+        document.getElementById("appointmentForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const patientId = localStorage.getItem("patientId"); // Get patient ID from storage
+            const doctorId = document.getElementById("doctorId").value;
+            const appointmentDate = document.getElementById("appointmentDate").value;
+            const appointmentTime = document.getElementById("appointmentTime").value;
+
+            if (!doctorId || !appointmentDate || !appointmentTime) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+            const appointmentData = {
+                patient_id: patientId,
+                doctor_id: doctorId,
+                appointment_date: `${appointmentDate} ${appointmentTime}`,
+                status: "Scheduled"
+            };
+
+            try {
+                const response = await fetch("http://localhost:8080/api/book-appointment", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(appointmentData)
+                });
+
+                const result = await response.json();
+                const responseMessage = document.getElementById("responseMessage");
+                if (response.ok) {
+                    responseMessage.textContent = "Appointment booked successfully!";
+                    responseMessage.classList.remove('error');
+                    responseMessage.classList.add('success');
+                    alert("Appointment booked successfully!");
+                    window.location.href = 'http://localhost:8080/api/patientdashboard'; // Redirect after booking
+                } else {
+                    responseMessage.textContent = "Error: " + result.error;
+                    responseMessage.classList.remove('success');
+                    responseMessage.classList.add('error');
+                }
+            } catch (error) {
+                console.error("Error booking appointment:", error);
+                alert("Server error. Please try again.");
+            }
+        });
+    </script>
+
+</body>
+</html>

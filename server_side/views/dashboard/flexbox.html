@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/views/dashboard/flexbox.css" />
+  </head>
+  <body>
+    <div class="bodywrapper" id="bodywrapper1">
+      
+        <button id="opensidebar" onclick="openav()"> > </button>
+        <button id="closesidebar" onclick="closenav()"> < </button>
+        <div id="sidebar" class="side-bar">
+          <a href="#" class="w3-bar-item w3-button"
+          >chatpage</a
+          >
+          <a href="#" class="w3-bar-item w3-button">Link 2</a>
+          <a href="#" class="w3-bar-item w3-button">Link 3</a>
+      
+      </div>
+      <div class="page-container" id="mainwrapper">
+      <div class="outer-container">
+        <div class="search-container">
+          <input type="text" class="search" />
+          <button class="searchbtn">search</button>
+          <button class="searchbtn">notification</button>
+        </div>
+        <div class="info-container">
+          <img
+          id="picture"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmiUcute60KURpNQxI6DM1XNiDP9JJqhV2HA&s"
+          alt="pictureofdoctor"
+          /> 
+
+          <p id="info">
+            <ul id="infotags">
+              <li>Name : Dr Abbas Ali</li>
+              <li>Speciality: opthamologist</li>
+                <li>Age: 34 years</li>
+                <li>info:some text</li>
+                <li>info:some text</li>
+            </ul>
+          </p>
+        </div>
+        <div class="stats-container">
+          <div class="bar"><span>patients checked</span></div>
+          <div class="bar">patients checked</div>
+          <div class="bar">patients checked</div>
+        </div>
+        <div class="todo-container">
+         ToDo:
+         <ul>
+          <li>1.task</li>
+          <li>2.task</li>
+          <li>3.task</li>
+          <li>4.task</li>
+          <li>5.task</li>
+          <li>6.task</li>
+          <li>7.task</li>
+          <li>8.task</li>
+         </ul>
+        </div>
+        <div class="progress-container">
+          <div class="w3-grey"><div class="progress">Progress1</div></div>
+          <div class="w3-grey"><div class="progress">Progress 2</div></div>
+          <div class="w3-grey"><div class="progress">Progress 3</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+  <script src="/views/dashboard/flexbox.js"></script>
+</html>

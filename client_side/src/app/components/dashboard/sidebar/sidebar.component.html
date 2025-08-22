@@ -1,0 +1,13 @@
+<div class="sidebar" [class.closed]="isClosed">
+    <p>Sidebar Loaded!</p>  <!-- Test if it's visible -->
+    <button (click)="toggleSidebar()" class="toggle-btn">☰</button>
+    <ul>
+      <li><a routerLink="Appointment">📅 Appointments</a></li>
+      <li><button (click)="Appointments()">📅📅📅Go To Appointments</button></li>
+      <li><a routerLink="/MedicalHistory">📄 Medical History</a></li>
+      <li><a routerLink="/ml-interface">🤖 ML Interface</a></li>
+      <li><a routerLink="/settings">⚙️ Settings</a></li>
+    </ul>
+  </div>
+
+<router-outlet></router-outlet>

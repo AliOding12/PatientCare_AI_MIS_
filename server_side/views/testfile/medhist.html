@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Reports Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #F3F3E0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        }
+        h1 {
+            color: #133E87;
+            text-align: center;
+        }
+        .search-bar, .upload-section {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .search-bar input, .upload-section input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #608BC1;
+            border-radius: 6px;
+            background-color: #CBDCEB;
+        }
+        .upload-section button {
+            padding: 10px 15px;
+            background-color: #133E87;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .upload-section button:hover {
+            background-color: #608BC1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #608BC1;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #CBDCEB;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+        .view-btn {
+            background-color: #133E87;
+            color: white;
+        }
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Medical Reports</h1>
+
+        <div class="upload-section">
+            <input type="text" id="reportTitle" placeholder="Enter Report Title">
+            <input type="file" id="reportFile">
+            <button onclick="uploadReport()">Upload</button>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search reports...">
+        </div>
+
+        <table id="reportTable">
+            <thead>
+                <tr>
+                    <th>Report Title</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Reports will be dynamically populated here -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

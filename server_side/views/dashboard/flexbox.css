@@ -1,0 +1,205 @@
+body{
+    background-color: rgb(50, 47, 47);
+}
+.bodywrapper{
+    display: flex;
+}
+.page-container{
+
+    display: flex;
+    border: 1px solid;
+    border-color: rgb(212, 212, 212);
+    border-radius: 3px ;
+    background-color: rgb(48, 44, 44);
+}
+
+#opensidebar{
+    height: 30px;
+    width: 30px;
+    background-color: aliceblue;
+
+}
+#closesidebar{
+    height: 30px;
+    width: 30px;
+    background-color: aliceblue;
+    
+    
+
+}
+.side-bar{
+    background-color: #4b4a4a;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+    height: 550px;
+    border: 2px solid rgb(212,212,212);
+}
+.side-bar a{
+    color: aliceblue;
+    margin: 10px;
+}
+.outer-container{
+
+    display: flex;
+    flex-wrap:wrap;
+    min-height: 150px;
+    min-width: 150px;
+    border: 1px solid;
+    border-color: rgb(212, 212, 212);
+    border-radius: 3px ;
+    background-color: rgb(48, 44, 44);
+    
+}
+
+.inner-container{
+    background-color: rgb(35, 32, 32);
+    color: rgb(85, 133, 255);
+    margin:10px;
+    min-height: 50px;
+    min-width: 50px;
+    border: 1px solid;
+    border-color: rgb(215, 215, 215);
+    border-radius: 3px ;
+    flex-grow: 1;
+}
+
+.search-container{
+    background-color: rgb(35, 32, 32);
+    color: rgb(85, 133, 255);
+    margin:10px;
+    min-height: 50px;
+    min-width: 50px;
+    border: 1px solid;
+    border-color: rgb(215, 215, 215);
+    border-radius: 3px ;
+    flex-grow: 1;
+    max-height: 50px;
+    
+}
+
+.search{
+    min-height: 10px;
+    width: 500px;
+    border-radius: 3px;
+    margin:15px;
+  
+}
+.searchbtn{
+    min-height: 10px;
+    width: 80px;
+    border-radius: 3px;
+    margin:15px;
+
+}
+
+.info-container{
+    background-color: rgb(35, 32, 32);
+    color: rgb(85, 133, 255);
+    margin:10px;
+    border: 1px solid;
+    border-color: rgb(215, 215, 215);
+    border-radius: 3px ;
+    max-width:fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-grow: 1;
+    
+}
+#infotags{
+    margin: 5px;
+    color: whitesmoke;
+    font: 1em sans-serif;
+}
+
+#picture{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    border: 2px solid grey;
+    margin: 5px;
+
+    
+}
+
+#info{
+    font-size: 12px;
+    color: #ffff;
+    margin: 2px;
+}
+
+
+.stats-container{
+    background-color: rgb(35, 32, 32);
+    color: rgb(242, 244, 250);
+    margin:10px;
+    border: 1px solid;
+    border-color: rgb(215, 215, 215);
+    border-radius: 3px ;
+    flex-grow: 1;
+    gap: 5px;    
+    max-width: fit-content;
+    max-height: fit-content;
+    text-align: center;
+    
+}
+
+.bar{
+    
+    border: 1rem solid;
+    border-color: rgb(25, 251, 25);
+    border-radius: 9rem;
+    width: 5rem;
+    height: 5rem;
+    margin: 10px;
+    padding: 5px;
+    float: right;
+
+}
+.bar span{
+    
+    margin:5px;
+
+}
+
+.todo-container{
+    background-color: rgb(35, 32, 32);
+    color: rgb(244, 244, 244);
+    border: 1px solid;
+    border-color: rgb(215, 215, 215);
+    border-radius: 3px ;
+    flex-grow: 1;
+    margin:10px;
+    padding: 5px;
+    max-width: 620px;
+    max-height: fit-content;
+    
+}
+.progress-container{
+    background-color: rgb(35, 32, 32);
+    color: rgb(85, 133, 255);
+    margin:10px;
+    max-height: fit-content;
+    min-width: 50px;
+    border: 1px solid;
+    border-color: rgb(215, 215, 215);
+    border-radius: 3px ;
+    flex-grow: 1;
+}
+
+.w3-grey{
+
+    height:35px;
+    width:100%vw;
+    background-color: #ffff;
+    margin: 10px;
+    border-radius: 4px;
+}
+.progress{
+    height: 35px;
+    width: 50%;
+    background-color: rgb(81, 240, 81);
+    text-align: center;
+    border-radius: 4px;
+}

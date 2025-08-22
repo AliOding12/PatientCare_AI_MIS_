@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatPage</title>
+    <link rel="stylesheet" href="/flexbox/chatpage.css">
+    <style>
+
+        body{
+            background-color: rgba(0, 80, 239, 0.83);
+        }
+        
+        .page-container{
+            border: 2px solid white;
+            background-color: rgba(245, 245, 245, 0.529);
+            border-radius: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        
+        }
+        
+        .chat-container{
+            display: flex;
+        }
+        
+        .contact-container{
+            border: 2px solid white;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            width: 20vw;
+            color: rgb(37, 36, 36);
+            background-color: white;
+            margin: 5px;
+            
+        }
+        .contact-buttons{
+            color: rgb(37, 36, 36);
+            margin: 10px;
+        }
+        #search{
+            color: black;
+            background-color: rgba(146, 146, 146, 0.581);
+            margin: 4px;
+            height: 20px;
+            border: 2px rgb(55, 55, 55);
+            border-radius: 1rem;
+        }
+        #createnew{
+            align-items: baseline;
+            font-size: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.441);
+            margin: 10px;
+            background-color: rgba(43, 40, 40, 0.255);
+            height: 25px;
+            border-radius: 1rem;
+        }
+        #addbtn{
+            border-radius: 1rem;
+            border-color: rgb(108, 106, 106);
+        }
+        
+        .message-container{
+            border: 2px solid white;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column-reverse;
+            width: 76vw;
+            height: 76vh;
+            color: rgb(37, 36, 36);
+            background-color: white;
+            margin: 5px;
+            overflow-y: scroll;
+        }
+        .message-items{
+            display: flex;
+        }
+        #chatbox{
+            border-radius: 1rem;
+            height: 30px;
+            width: 92%;
+            margin: 5px;
+        }
+        #emojibtn{
+            width:fit-content;
+            height:  38px;
+            border-radius: 1rem;
+            border: 2px whitesmoke;
+            margin: 2px;
+        }
+        #sendbtn{
+            width:fit-content;
+            height:  37px;
+            border-radius: 1rem;
+            border: 2px whitesmoke;
+            margin: 2px;
+        }
+        
+        /* #textmsg{
+        
+            border: 1px solid black;
+            padding: 10px;
+            height: 400px;
+            
+        } */
+        
+        
+        .message {
+            border: 2px solid rgb(42, 41, 41);
+            border-radius: 1rem;
+            height: fit-content;
+            width: fit-content;
+            margin-bottom: 10px;
+            background-color: rgba(149, 149, 149, 0.31);
+            padding: 5px;
+            margin: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    
+<div class="page-container">
+
+    <div class="chat-container">
+
+        <div class="contact-container">
+            <div id="createnew"> <button id="addbtn">+</button> Create New</div>
+            Chat 
+            <input id="search" type="text">
+            <a  href="#" class="contact-buttons">contact1</a>
+            <a href="#" class="contact-buttons">contact2</a>
+            <a href="#" class="contact-buttons">contact3</a>
+            <a  href="#" class="contact-buttons">contact1</a>
+            <a href="#" class="contact-buttons">contact2</a>
+            <a href="#" class="contact-buttons">contact3</a>
+            <a  href="#" class="contact-buttons">contact1</a>
+            <a href="#" class="contact-buttons">contact2</a>
+            <a href="#" class="contact-buttons">contact3</a>
+        </div>
+        <div class="message-container" id="messagebox">
+            <div class="message-items">  
+                <input type="text" id="chatbox" placeholder="Chat">
+                <button id="emojibtn">😌</button>
+                <button id="sendbtn">➤</button>
+                
+            </div>
+            <div id="textmsg"></div>
+        </div>
+
+    </div>
+    <div class="details-container"></div>
+
+</div>
+
+
+</body>
+<script src="/flexbox/chatpage.js"></script>
+</html>

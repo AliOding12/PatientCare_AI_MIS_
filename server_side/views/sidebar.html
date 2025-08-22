@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            background-color: #F3F3E0;
+            font-family: 'Arial', sans-serif;
+            transition: margin-left 0.3s;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: linear-gradient(135deg, #133E87, #608BC1);
+            color: white;
+            padding-top: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transition: transform 0.3s ease;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar.hidden {
+            transform: translateX(-250px);
+        }
+        .sidebar .nav-link {
+            color: white;
+            padding: 12px;
+            display: block;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #CBDCEB;
+            color: #133E87;
+        }
+        .toggle-btn {
+            position: absolute;
+            top: 15px;
+            left: 260px;
+            cursor: pointer;
+            background-color: #133E87;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            transition: left 0.3s;
+        }
+        .sidebar.hidden ~ .toggle-btn {
+            left: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 40px;
+            margin-left: 250px;
+            transition: margin-left 0.3s;
+        }
+        .sidebar.hidden ~ .content {
+            margin-left: 0;
+        }
+        .dashboard-header {
+            background: #133E87;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .profile-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .profile-card img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <script src="./sidebar.js"></script>
+    <div class="sidebar" id="sidebar">
+        <h4 class="text-center">Doctor Dashboard</h4>
+        <nav class="nav flex-column">
+            <a href="#" id="appointmentsBtn" class="nav-link">Appointments</a>
+            <a href="#" id="medicalhistoryBtn" class="nav-link">Medical Reports</a>
+            <a href="#" class="nav-link">ML Interface</a>
+            <a href="#" class="nav-link">Settings</a>
+        </nav>
+    </div>
+    <button class="toggle-btn" id="toggleBtn">☰</button>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("sidebar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("sidebar-container").innerHTML = data;
+                document.getElementById("toggleBtn").addEventListener("click", function() {
+                    document.getElementById("sidebar").classList.toggle("hidden");});
+                    document.getElementById("appointmentsBtn").addEventListener("click", function() {
+                        window.location.href = "http://localhost:8080/api/appointment";
+                    });
+                    document.getElementById("medicalhistoryBtn").addEventListener("click", function() {
+                        window.location.href = "http://localhost:8080/api/medicalhistory";
+                    });    
+            })
+            .catch(error => console.error("Error loading sidebar:", error));
+        });
+        
+</script>
+</body>
+</html>

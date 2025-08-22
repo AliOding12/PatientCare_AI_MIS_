@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F3F3E0;
+            padding: 40px;
+        }
+        .container {
+            max-width: 1200px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .table th {
+            background: #133E87;
+            color: white;
+            text-align: center;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #CBDCEB;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #608BC1;
+            color: white;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4" style="color: #133E87;">Appointments Management</h1>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search appointments...">
+        </div>
+        
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Patient Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentsBody">
+                    <!-- Rows will be added dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        async function fetchAppointments() {
+            try {
+                const response = await fetch("http://localhost:8080/api/appointment1", {
+                    method: "GET",
+                    credentials: "include",
+                    headers: { "Content-Type": "application/json" }
+                });
+                if (!response.ok) throw new Error("Failed to fetch appointments");
+                const appointments = await response.json();
+                displayAppointments(appointments);
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+
+        function displayAppointments(appointments) {
+            const tableBody = document.getElementById("appointmentsBody");
+            tableBody.innerHTML = "";
+            if (appointments.length === 0) {
+                tableBody.innerHTML = "<tr><td colspan='4' class='text-center'>No appointments available.</td></tr>";
+                return;
+            }
+            appointments.forEach(appt => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${appt.patient_name}</td>
+                    <td>${appt.date}</td>
+                    <td>${appt.time}</td>
+                    <td>${appt.status}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchAppointments);
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            document.querySelectorAll('#appointmentsBody tr').forEach(row => {
+                row.style.display = row.textContent.toLowerCase().includes(searchTerm) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

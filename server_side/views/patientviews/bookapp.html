@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Book an Appointment</h2>
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Select Doctor</label>
+                <select class="form-select">
+                    <option>Dr. John Doe - Cardiologist</option>
+                    <option>Dr. Sarah Smith - Neurologist</option>
+                    <!-- More doctors dynamically added here -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Select Date</label>
+                <input type="date" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Select Time</label>
+                <input type="time" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success w-100">Confirm Appointment</button>
+        </form>
+    </div>
+</body>
+</html>

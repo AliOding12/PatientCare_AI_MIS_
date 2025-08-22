@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f6f6f6;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 5px solid #1e56a0;
+        }
+
+        h2 {
+            color: #1e56a0;
+            font-weight: bold;
+        }
+
+        .details p {
+            font-size: 16px;
+            color: #163172;
+            margin: 5px 0;
+        }
+
+        .bio {
+            font-size: 15px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .book-btn {
+            background-color: #1e56a0;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .book-btn:hover {
+            background-color: #608BC1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img id="profileImage" class="profile-img" src="doctor-placeholder.jpg" alt="Doctor Profile">
+        <h2 id="doctorName">Loading...</h2>
+
+        <div class="details">
+            <p id="specialty"><strong>Specialty:</strong> -</p>
+            <p id="experience"><strong>Experience:</strong> - years</p>
+            <p class="bio" id="bio"><strong>Bio:</strong> -</p>
+        </div>
+
+        <button class="book-btn" onclick="bookAppointment()">Book an Appointment</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Get doctorId from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const doctorId = urlParams.get("doctorId");
+
+            if (!doctorId) {
+                alert("Doctor not found.");
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:8080/api/doctor/${doctorId}`);
+                const doctor = await response.json();
+
+                // Populate doctor profile
+                document.getElementById("profileImage").src = doctor.profile_image || "doctor-placeholder.jpg";
+                document.getElementById("doctorName").textContent = doctor.name;
+                document.getElementById("specialty").textContent = `Specialty: ${doctor.specialization}`;
+                document.getElementById("experience").textContent = `Experience: ${doctor.experience} years`;
+                document.getElementById("bio").textContent = `Bio: ${doctor.bio || "No bio available."}`;
+            } catch (error) {
+                console.error("Error fetching doctor data:", error);
+                alert("Failed to load doctor details.");
+            }
+        });
+
+        function bookAppointment() {
+            // Redirect to booking page with doctor ID
+            window.location.href = `carddoc.html?doctorId=${new URLSearchParams(window.location.search).get("doctorId")}`;
+        }
+    </script>
+
+</body>
+</html>

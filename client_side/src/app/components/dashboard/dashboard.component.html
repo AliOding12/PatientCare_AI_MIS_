@@ -1,0 +1,41 @@
+<div>
+    <router-outlet></router-outlet>
+</div>
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Welcome to the Doctor Dashboard</h1>
+      <p>Manage your appointments, medical history, ML interface, and settings.</p>
+  
+      <div class="cards">
+        <div class="card">
+          <h2>Appointments</h2>
+          <p>View upcoming patient appointments.</p>
+        </div>
+        <div class="card">
+          <h2>Medical History</h2>
+          <p>Access patient medical records.</p>
+        </div>
+        <div class="card">
+          <h2>ML Interface</h2>
+          <p>Analyze data using the ML model.</p>
+        </div>
+        <div class="card">
+          <h2>Settings</h2>
+          <p>Manage your profile and preferences.</p>
+        </div>
+      </div>
+
+      <h2>Users List</h2>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.id }} - {{ user.name }} ({{ user.language }})
+  </li>
+</ul>
+
+    </div>
+  </div>
